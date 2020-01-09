@@ -13,9 +13,10 @@ def typeassert(*ty_args, **ty_kwargs):
 
         @wraps(func)
         def wrapper(*args, **kwargs):
-            bound_values = sig.bind(*args, **kwargs)
+            bound_values = sig.bind(*args, **kwargs).arguments
             # Enforce type assertions across supplied arguments
-            for name, value in bound_values.arguments.items():
+
+            for name, value in bound_values.items():
                 if name in bound_types:
                     if not isinstance(value, bound_types[name]):
                         raise TypeError(
@@ -37,6 +38,7 @@ def spam(x, y, z=42):
 
 if __name__ == '__main__':
     print(add(2,3))
+
     try:
         add(2, 'hello')
     except TypeError as e:
