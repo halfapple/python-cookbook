@@ -74,7 +74,6 @@ def countdown2(n):
         n -= 1
 
 if __name__ == '__main__':
-    import logging
     logging.basicConfig(level=logging.DEBUG)
     print(add(2, 3))
 

@@ -28,7 +28,6 @@ def spam():
     print('Spam!')
 
 if __name__ == '__main__':
-    import logging
     logging.basicConfig(level=logging.DEBUG)
     add(2,3)
     sub(2,3)
