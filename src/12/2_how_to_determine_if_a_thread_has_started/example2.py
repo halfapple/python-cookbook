@@ -32,7 +32,7 @@ class PeriodicTimer:
                 self._cv.wait()
 
 # Example use of the timer
-ptimer = PeriodicTimer(5)
+ptimer = PeriodicTimer(1)
 ptimer.start()
 
 # Two threads that synchronize on the timer

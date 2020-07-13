@@ -4,11 +4,13 @@ import time
 # Code to execute in an independent thread
 def countdown(n, started_evt):
     print("countdown starting")
-    started_evt.set() 
+
     while n > 0:
         print("T-minus", n)
+        started_evt.set()
         n -= 1
         time.sleep(5)
+
 
 # Create the event object that will be used to signal startup
 started_evt = Event()

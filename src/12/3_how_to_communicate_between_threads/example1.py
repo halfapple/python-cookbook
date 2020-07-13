@@ -9,6 +9,7 @@ def producer(out_q):
     n = 10
     while n > 0:
         # Produce some data
+        print('Gen:', n)
         out_q.put(n)
         time.sleep(2)
         n -= 1
@@ -16,6 +17,7 @@ def producer(out_q):
 
     # Put the sentinel on the queue to indicate completion
     out_q.put(_sentinel)
+    print('Gen finish')
 
 # A thread that consumes data
 def consumer(in_q):
